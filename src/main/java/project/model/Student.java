@@ -1,4 +1,5 @@
-package model;
+package project.model;
 
 public class Student {
+
 }
