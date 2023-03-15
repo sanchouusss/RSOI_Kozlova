@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `login` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
-  `role` enum('Administrator','Student') NOT NULL DEFAULT 'Student',
+  `role` enum('Administrator','project.model.Student') NOT NULL DEFAULT 'project.model.Student',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `login_UNIQUE` (`login`)
@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 -- Дамп данных для таблицы scholarship_db.users
 INSERT INTO `users` (`id`, `login`, `password`, `role`) VALUES
-(1, 'stud', 'stud', 'Student'),
+(1, 'stud', 'stud', 'project.model.Student'),
 (2, 'admin', 'admin', 'Administrator');
 
 -- Дамп структуры для таблицы scholarship_db.users_has_students
