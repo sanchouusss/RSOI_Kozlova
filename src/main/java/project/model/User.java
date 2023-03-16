@@ -1,10 +1,10 @@
 package project.model;
-
 import javax.persistence.*;
+
 @Entity
 @Table(name = "users")
 
-public class User {
+public class User implements Model{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //генерация первичного ключа автоматически при добавлении
     @Column(name = "id") // новой записи в таблицу
@@ -23,12 +23,16 @@ public class User {
     public User() {
     }
 
-
     public User(int id, String login, String password, UserRole role) {
         this.id = id;
         this.login = login;
         this.password = password;
         this.role = role;
+    }
+
+    @Override
+    public ModelType getModelType() {
+        return ModelType.User;
     }
 
 }

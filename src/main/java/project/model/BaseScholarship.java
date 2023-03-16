@@ -5,20 +5,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class BaseScholarship {
+public class BaseScholarship implements Model{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
-    @Column(name = "value_scholarship")
-    private float valueScholarship;
+    @Column(name = "value")
+    private float value;
 
-    @Column(name = "value_bpm")
-    private float valueBPM;
+    @Override
+    public ModelType getModelType() {
+        return ModelType.BaseScholarship;
+    }
 
-    @Column(name = "ratio_bpm")
-    private float ratioBPM;
 
 }
