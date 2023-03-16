@@ -47,7 +47,6 @@ CREATE TABLE IF NOT EXISTS `base_scholarship` (
 INSERT INTO `base_scholarship` (`id`, `value`) VALUES
 (1, 112.58);
 
-
 -- Дамп структуры для таблицы scholarship_db.specialities_has_subjects
 CREATE TABLE IF NOT EXISTS `specialities_has_subjects` (
   `specialities_id` int unsigned NOT NULL,
