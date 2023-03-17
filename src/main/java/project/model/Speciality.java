@@ -1,8 +1,15 @@
 package project.model;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
+import lombok.Builder;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Builder
+@Table(name = "specialities")
 public class Speciality implements Model {
 
     @Id
@@ -26,6 +33,10 @@ public class Speciality implements Model {
 
     @Column(name = "ratio_9")
     private float ratio_9;
+
+    public Speciality() {
+
+    }
 
     @Override
     public ModelType getModelType() {

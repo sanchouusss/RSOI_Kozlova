@@ -1,8 +1,12 @@
 package project.model;
 
 
+import lombok.Builder;
+
 import javax.persistence.*;
 
+@Entity
+@Builder
 @Table(name = "students")
 public class Student implements Model{
 
@@ -35,6 +39,10 @@ public class Student implements Model{
 
     @Column(name = "specialities_id")
     private int specialityId;
+
+    public Student() {
+
+    }
 
     @Override
     public ModelType getModelType() {

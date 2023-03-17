@@ -1,10 +1,12 @@
 package project.model;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Builder;
 
+import javax.persistence.*;
+
+@Entity
+@Builder
+@Table(name = "base_scholarship")
 public class BaseScholarship implements Model{
 
     @Id
@@ -15,10 +17,12 @@ public class BaseScholarship implements Model{
     @Column(name = "value")
     private float value;
 
+    public BaseScholarship() {
+    }
+
     @Override
     public ModelType getModelType() {
         return ModelType.BaseScholarship;
     }
-
 
 }

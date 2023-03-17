@@ -1,8 +1,15 @@
 package project.model;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
+import lombok.Builder;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Builder
+@Table(name = "subjects")
 public class Subject implements Model{
 
     @Id
@@ -15,6 +22,9 @@ public class Subject implements Model{
     @Column(name = "hours")
     private int hours;
 
+    public Subject() {
+
+    }
 
 
     @Override

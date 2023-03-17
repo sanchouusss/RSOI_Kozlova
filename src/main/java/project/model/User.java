@@ -1,9 +1,11 @@
 package project.model;
+import lombok.Builder;
+
 import javax.persistence.*;
 
 @Entity
+@Builder
 @Table(name = "users")
-
 public class User implements Model{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //генерация первичного ключа автоматически при добавлении
