@@ -1,10 +1,14 @@
 package project.model;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "users")
 public class User implements Model{
     @Id
@@ -22,15 +26,6 @@ public class User implements Model{
     @Enumerated(EnumType.STRING) //значения перечисления будут храниться в базе данных в виде строковых значений,
     private UserRole role; // которые соответствуют именам элементов перечисления
 
-    public User() {
-    }
-
-    public User(int id, String login, String password, UserRole role) {
-        this.id = id;
-        this.login = login;
-        this.password = password;
-        this.role = role;
-    }
 
     @Override
     public ModelType getModelType() {

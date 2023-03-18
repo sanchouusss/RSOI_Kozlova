@@ -1,11 +1,15 @@
 package project.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "base_scholarship")
 public class BaseScholarship implements Model{
 
@@ -16,9 +20,6 @@ public class BaseScholarship implements Model{
 
     @Column(name = "value")
     private float value;
-
-    public BaseScholarship() {
-    }
 
     @Override
     public ModelType getModelType() {

@@ -1,6 +1,8 @@
 package project.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +11,8 @@ import javax.persistence.Table;
 
 @Entity
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "subjects")
 public class Subject implements Model{
 
@@ -21,11 +25,6 @@ public class Subject implements Model{
 
     @Column(name = "hours")
     private int hours;
-
-    public Subject() {
-
-    }
-
 
     @Override
     public ModelType getModelType() {

@@ -1,6 +1,8 @@
 package project.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +11,8 @@ import javax.persistence.Table;
 
 @Entity
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "specialities")
 public class Speciality implements Model {
 
@@ -34,9 +38,6 @@ public class Speciality implements Model {
     @Column(name = "ratio_9")
     private float ratio_9;
 
-    public Speciality() {
-
-    }
 
     @Override
     public ModelType getModelType() {
