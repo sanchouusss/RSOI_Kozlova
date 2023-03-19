@@ -1,18 +1,33 @@
 package project.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.*;
 
+import jakarta.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
+@Data
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "students")
 public class Student implements Model{
+
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
+    private Set<Performance> performance = new HashSet<>();
+
+
+    @OneToOne
+    @JoinColumn(name = "id")
+    private SpecialScholarship specialScholarship;
+
+
+    @ManyToOne
+    @JoinColumn(name = "specialities_id")
+    private Speciality speciality;
 
     @Id
     @Column(name = "id")
@@ -41,7 +56,7 @@ public class Student implements Model{
     private EducationForm educationForm;
 
 
-    @Column(name = "specialities_id")
+    @Transient
     private int specialityId;
 
     @Override

@@ -2,13 +2,12 @@ package project.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jakarta.persistence.*;
 
+@Data
 @Entity
 @Builder
 @AllArgsConstructor
@@ -24,19 +23,19 @@ public class Speciality implements Model {
     private String name;
 
     @Column(name = "ratio_5")
-    private float ratio_5;
+    private float ratio5;
 
     @Column(name = "ratio_6")
-    private float ratio_6;
+    private float ratio6;
 
     @Column(name = "ratio_7")
-    private float ratio_7;
+    private float ratio7;
 
     @Column(name = "ratio_8")
-    private float ratio_8;
+    private float ratio8;
 
     @Column(name = "ratio_9")
-    private float ratio_9;
+    private float ratio9;
 
 
     @Override

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="hibernate.common.commons.annotations" type="repository">
+    <properties maven-id="org.hibernate.common:hibernate-commons-annotations:6.0.6.Final" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/common/hibernate-commons-annotations/6.0.6.Final/hibernate-commons-annotations-6.0.6.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

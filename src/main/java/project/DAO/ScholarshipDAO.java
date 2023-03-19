@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
-public class ScholarshipDAO<T> {
+public class ScholarshipDAO<T> implements AutoCloseable{
     protected static final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("Sanchous");
     protected final Class<T> type;
     protected EntityManager entityManager;
@@ -70,4 +70,8 @@ public class ScholarshipDAO<T> {
         return selected;
     }
 
+    @Override
+    public void close() throws Exception {
+
+    }
 }
