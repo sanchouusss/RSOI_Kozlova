@@ -1,8 +1,8 @@
 package project.DAO;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 public class ScholarshipDAO<T> {
     protected static final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("Sanchous");
@@ -33,5 +33,41 @@ public class ScholarshipDAO<T> {
         entityManager.getTransaction().commit();
     }
 
+    public T findByUniqueColumn(String columnName, Object value) {
+        var list = findByColumn(columnName, value);
+
+        if (list == null || list.isEmpty()) {
+            return null;
+        } else {
+            return list.get(0);
+        }
+    }
+
+    public List<T> findByColumn(String columnName, Object value) {
+        var cb = entityManager.getCriteriaBuilder();
+        var query = cb.createQuery(type);
+        var root = query.from(type);
+
+        query.select(root).where(cb.equal(root.get(columnName), value));
+
+        try {
+            var result = entityManager.createQuery(query).getResultList();
+            return result;
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
+    public List<T> selectAll() {
+        var query = entityManager.getCriteriaBuilder().createQuery(type);
+        var root = query.from(type);
+
+        query.select(root);
+
+        var result = entityManager.createQuery(query);
+        var selected = result.getResultList();
+
+        return selected;
+    }
 
 }
