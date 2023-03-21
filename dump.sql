@@ -141,18 +141,3 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `login`, `password`, `role`) VALUES
 (1, 'stud', 'stud', 'project.model.Student'),
 (2, 'admin', 'admin', 'Administrator');
-
--- Дамп структуры для таблицы scholarship_db.users_has_students
-CREATE TABLE IF NOT EXISTS `users_has_students` (
-`users_id` int unsigned NOT NULL,
-`students_id` int unsigned NOT NULL,
- PRIMARY KEY (`users_id`,`students_id`),
-KEY `fk_users_has_students_students1_idx` (`students_id`),
-KEY `fk_users_has_students_users1_idx` (`users_id`),
-CONSTRAINT `fk_users_has_students_users1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
-CONSTRAINT `fk_users_has_students_students1` FOREIGN KEY (`students_id`) REFERENCES `students` (`id`) ON DELETE CASCADE
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
--- Дамп данных для таблицы scholarship_db.users_has_students
-INSERT INTO `users_has_students` (`users_id`, `students_id`) VALUES
-(1, 1);
