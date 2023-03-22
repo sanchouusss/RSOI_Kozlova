@@ -22,7 +22,7 @@ public class User implements Model{
     private String login;
 
     @Column(name = "password")
-    private String password;
+    private byte[] password;
 
     @Column(name = "role")
     @Enumerated(EnumType.STRING) //значения перечисления будут храниться в базе данных в виде строковых значений,

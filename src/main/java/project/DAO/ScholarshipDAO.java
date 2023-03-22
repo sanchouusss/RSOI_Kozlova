@@ -27,11 +27,13 @@ public class ScholarshipDAO<T> implements AutoCloseable{
         entityManager.getTransaction().commit();
     }
 
+
     public void remove(T existingRecord) throws Exception {
         entityManager.getTransaction().begin();
         entityManager.remove(existingRecord);
         entityManager.getTransaction().commit();
     }
+
 
     public T findByUniqueColumn(String columnName, Object value) {
         var list = findByColumn(columnName, value);
@@ -42,6 +44,7 @@ public class ScholarshipDAO<T> implements AutoCloseable{
             return list.get(0);
         }
     }
+
 
     public List<T> findByColumn(String columnName, Object value) {
         var cb = entityManager.getCriteriaBuilder();
@@ -58,6 +61,7 @@ public class ScholarshipDAO<T> implements AutoCloseable{
         }
     }
 
+
     public List<T> selectAll() {
         var query = entityManager.getCriteriaBuilder().createQuery(type);
         var root = query.from(type);
@@ -72,6 +76,6 @@ public class ScholarshipDAO<T> implements AutoCloseable{
 
     @Override
     public void close() throws Exception {
-
+        entityManager.close();
     }
 }

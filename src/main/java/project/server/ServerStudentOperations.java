@@ -1,7 +1,7 @@
 package project.server;
 
 import project.AnswerType;
-import project.DAO.ScholarshipDAO;
+import project.DAO.*;
 import project.ServerMessage;
 import project.StudentMessage;
 import project.StudentModelList;
@@ -13,20 +13,21 @@ import project.model.User;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.Socket;
 
-import static project.StudentOperationsType.CalculateScholarship;
 
 
 public class ServerStudentOperations implements Runnable {
 
-
+    private Socket socket;
     private ObjectOutputStream outputstream;
     private ObjectInputStream inputstream;
     private int userId;
     private int studentId;
 
 
-    public ServerStudentOperations(ObjectOutputStream outputstream, ObjectInputStream inputstream, int userId, int studentId) throws IOException {
+    public ServerStudentOperations(Socket socket, ObjectOutputStream outputstream, ObjectInputStream inputstream, int userId, int studentId) throws IOException {
+       this.socket = socket;
         this.outputstream = outputstream;
         this.inputstream = inputstream;
         this.userId = userId;
