@@ -5,6 +5,8 @@ import lombok.*;
 
 
 import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,7 +16,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "students")
-public class Student implements Model{
+public class Student implements Serializable, Model{
 
     @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
     private Set<Performance> performance = new HashSet<>();

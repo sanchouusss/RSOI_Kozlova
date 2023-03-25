@@ -9,13 +9,15 @@ import lombok.NoArgsConstructor;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Data
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "special_scholarship")
-public class SpecialScholarship implements Model{
+public class SpecialScholarship implements Serializable, Model{
 
     @OneToOne
     @JoinColumn(name = "id")

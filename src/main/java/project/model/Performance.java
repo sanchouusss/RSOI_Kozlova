@@ -4,13 +4,15 @@ package project.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
+
 @Data
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "performance")
-public class Performance implements Model{
+public class Performance implements Serializable, Model{
 
     @ManyToOne
     @JoinColumn(name = "students_id")

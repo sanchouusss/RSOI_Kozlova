@@ -7,13 +7,15 @@ import lombok.NoArgsConstructor;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Data
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "specialities")
-public class Speciality implements Model {
+public class Speciality implements Serializable, Model {
 
     @Id
     @Column(name = "id")

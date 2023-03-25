@@ -6,12 +6,14 @@ import lombok.NoArgsConstructor;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "subjects")
-public class Subject implements Model{
+public class Subject implements Serializable, Model{
 
     @Id
     @Column(name = "id")
