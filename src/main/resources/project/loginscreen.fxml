@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="217.0" prefWidth="321.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.GUI.LoginController">
+    <children>
+        <Label fx:id="resultLabel" />
+        <TextField fx:id="loginField" maxWidth="232.0" prefHeight="38.0" prefWidth="232.0" promptText="Логин" />
+        <PasswordField fx:id="passwordField" maxWidth="230.0" prefHeight="40.0" prefWidth="230.0" promptText="Пароль" />
+        <Button fx:id="submitButton" maxWidth="232.0" mnemonicParsing="false" onAction="#submit" prefHeight="34.0" prefWidth="232.0" text="Войти" />
+    </children>
+</VBox>
