@@ -1,4 +1,4 @@
-package project.GUI;
+package project.GUI.controllers;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;

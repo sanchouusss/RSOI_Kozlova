@@ -1,4 +1,4 @@
-package project.GUI;
+package project.GUI.controllers;
 
 import java.io.IOException;
 import java.util.List;
@@ -6,12 +6,12 @@ import java.util.List;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableView;
-import javafx.scene.control.Alert.AlertType;
 import project.*;
+import project.GUI.dialogs.ChangeInfoDialog;
+import project.GUI.dialogs.ChangePasswordDialog;
 
 public class StudentMenuController {
     @FXML private TabPane tabPane;

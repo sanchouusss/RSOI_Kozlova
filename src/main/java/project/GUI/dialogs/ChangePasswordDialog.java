@@ -1,4 +1,4 @@
-package project.GUI;
+package project.GUI.dialogs;
 
 import java.util.Arrays;
 
