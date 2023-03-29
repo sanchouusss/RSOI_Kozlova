@@ -12,10 +12,11 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "performance")
-public class Performance implements Serializable, Model{
+public class Performance implements Serializable, Model, Identifiable{
 
     @ManyToOne
     @JoinColumn(name = "students_id")
+    @ToString.Exclude
     private Student student;
 
     @ManyToOne

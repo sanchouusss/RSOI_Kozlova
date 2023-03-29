@@ -16,19 +16,23 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "students")
-public class Student implements Serializable, Model{
+public class Student implements Serializable, Model, Identifiable{
 
     @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
+    @ToString.Exclude
+    @Builder.Default
     private Set<Performance> performance = new HashSet<>();
 
 
     @OneToOne
     @JoinColumn(name = "id")
+    @ToString.Exclude
     private SpecialScholarship specialScholarship;
 
 
     @ManyToOne
     @JoinColumn(name = "specialities_id")
+    @ToString.Exclude
     private Speciality speciality;
 
     @Id

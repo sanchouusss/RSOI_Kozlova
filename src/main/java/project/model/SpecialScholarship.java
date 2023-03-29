@@ -1,10 +1,7 @@
 package project.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 
 import jakarta.persistence.*;
@@ -21,6 +18,7 @@ public class SpecialScholarship implements Serializable, Model{
 
     @OneToOne
     @JoinColumn(name = "id")
+    @ToString.Exclude
     private Student student;
 
     @Id

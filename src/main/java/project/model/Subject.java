@@ -1,21 +1,33 @@
 package project.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(of = "id")
 @Table(name = "subjects")
-public class Subject implements Serializable, Model{
+public class Subject implements Serializable, Model, Identifiable{
+
+
+    @ManyToMany(targetEntity = Speciality.class, mappedBy = "subjects", fetch = FetchType.LAZY)
+    @Builder.Default
+    @ToString.Exclude
+    private Set<Speciality> specialities = new HashSet<>();
+
+    @OneToMany(mappedBy = "subject")
+    @Builder.Default
+    @ToString.Exclude
+    private Set<Performance> performance = new HashSet<>();
+
 
     @Id
     @Column(name = "id")

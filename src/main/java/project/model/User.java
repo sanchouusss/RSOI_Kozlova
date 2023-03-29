@@ -14,7 +14,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "users")
-public class User implements Serializable, Model{
+public class User implements Serializable, Model, Identifiable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //генерация первичного ключа автоматически при добавлении
     @Column(name = "id") // новой записи в таблицу

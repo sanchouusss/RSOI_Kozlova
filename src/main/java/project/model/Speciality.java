@@ -1,21 +1,21 @@
 package project.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(of = "id")
 @Table(name = "specialities")
-public class Speciality implements Serializable, Model {
+public class Speciality implements Serializable, Model, Identifiable {
 
     @Id
     @Column(name = "id")
@@ -39,6 +39,15 @@ public class Speciality implements Serializable, Model {
     @Column(name = "ratio_9")
     private float ratio9;
 
+    @ManyToMany(targetEntity = Subject.class, cascade = { CascadeType.MERGE }, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "speciality_subjects",
+            inverseJoinColumns = { @JoinColumn(name = "subjects_id", referencedColumnName = "id") },
+            joinColumns = { @JoinColumn(name = "speciality_id", referencedColumnName = "id") }
+    )
+    @Builder.Default
+    @ToString.Exclude
+    private Set<Subject> subjects = new HashSet<>();
 
     @Override
     public ModelType getModelType() {
