@@ -1,4 +1,4 @@
-package project;
+package project.util;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;

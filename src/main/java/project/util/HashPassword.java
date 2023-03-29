@@ -1,4 +1,4 @@
-package project;
+package project.util;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;

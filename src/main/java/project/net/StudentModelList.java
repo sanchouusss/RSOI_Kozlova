@@ -1,4 +1,4 @@
-package project;
+package project.net;
 
 import lombok.Builder;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package project;
+package project.util;
 
 
 import java.io.IOException;
@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import project.Client;
 
 public class FXMLHelpers {
 
