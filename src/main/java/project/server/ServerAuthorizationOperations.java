@@ -1,7 +1,7 @@
 package project.server;
 
 import project.DAO.ScholarshipDAO;
-import project.LoginMessage;
+import project.net.LoginMessage;
 import project.model.User;
 import project.model.UserRole;
 
@@ -55,7 +55,7 @@ public class ServerAuthorizationOperations implements Runnable {
                         continue;
                     }
 
-                    if (!Arrays.equals(password, user.getPassword())) {
+                    if (Arrays.equals(password, user.getPassword())) {
                         outputstream.writeObject(LoginMessage.WrongPassword);
                         outputstream.flush();
 
@@ -68,7 +68,7 @@ public class ServerAuthorizationOperations implements Runnable {
                     outputstream.flush();
 
                     if (user.getRole() == UserRole.Admin) {
-                      //  return new ServerAdminOperations(socket, outputstream, inputstream);
+                        return new ServerAdminOperations(socket, outputstream, inputstream);
                     } else {
                         return new ServerStudentOperations(socket, outputstream, inputstream, user.getId(), Integer.valueOf(user.getLogin()));
                     }

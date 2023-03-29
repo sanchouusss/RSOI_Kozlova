@@ -1,24 +1,27 @@
 package project.server;
 
 import lombok.AllArgsConstructor;
-import project.AnswerType;
-import project.ClientMessage;
+import project.net.AnswerType;
+import project.net.ClientMessage;
 import project.DAO.ScholarshipDAO;
-import project.ModelList;
-import project.ServerMessage;
+import project.net.ModelList;
+import project.net.ServerMessage;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.Socket;
+
 import project.model.*;
 
 
 @AllArgsConstructor
 public class ServerAdminOperations implements Runnable {
 
-
+    private Socket socket;
     private ObjectOutputStream outputstream;
     private ObjectInputStream inputstream;
+
 
     @Override
     public void run() {

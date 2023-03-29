@@ -9,9 +9,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableView;
-import project.*;
 import project.GUI.dialogs.ChangeInfoDialog;
 import project.GUI.dialogs.ChangePasswordDialog;
+import project.net.StudentModelList;
+import project.net.StudentOperationsType;
+import project.util.InitializeTables;
 
 public class StudentMenuController {
     @FXML private TabPane tabPane;

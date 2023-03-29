@@ -6,8 +6,10 @@ import java.security.NoSuchAlgorithmException;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import project.HashPassword;
-import project.LoginMessage;
+import project.Client;
+import project.util.FXMLHelpers;
+import project.util.HashPassword;
+import project.net.LoginMessage;
 import project.model.UserRole;
 
 public class LoginController {
@@ -23,14 +25,14 @@ public class LoginController {
     @FXML
     private void submit() throws NoSuchAlgorithmException, IOException, ClassNotFoundException {
 
-      //  Client.outputstream.writeObject(loginField.getText());
-     //   Client.outputstream.flush();
+        Client.outputstream.writeObject(loginField.getText());
+        Client.outputstream.flush();
 
         var hash = HashPassword.getHash(passwordField.getText());
-     /*   Client.outputstream.writeInt(hash.length);
+        Client.outputstream.writeInt(hash.length);
         Client.outputstream.flush();
         Client.outputstream.write(hash, 0, hash.length);
-        Client.outputstream.flush();*/
+        Client.outputstream.flush();
 
         loginField.setDisable(true);
         passwordField.setDisable(true);
@@ -38,33 +40,33 @@ public class LoginController {
 
         new Thread(() -> {
 
-           /* try {
+            try {
                 answer = (LoginMessage)Client.inputstream.readObject();
             } catch (ClassNotFoundException | IOException e) {
                 e.printStackTrace();
-
+                Platform.runLater(() -> FXMLHelpers.onConnectionLost());
                 return;
-            }*/
+            }
 
             if (answer == LoginMessage.Success) {
 
-            /*    try {
+               try {
                     role = (UserRole)Client.inputstream.readObject();
                 } catch (ClassNotFoundException | IOException e1) {
                     e1.printStackTrace();
-
+                   Platform.runLater(() -> FXMLHelpers.onConnectionLost());
                     return;
-                }*/
+                }
 
 
                 Platform.runLater(() -> {
                     var fxml = role == UserRole.Admin ? "adminmenu" : "studentmenu";
 
-                  /*  try {
-
+                    try {
+                        FXMLHelpers.setRoot(fxml);
                     } catch (IOException e) {
                         e.printStackTrace();
-                    }*/
+                    }
                 });
 
             }

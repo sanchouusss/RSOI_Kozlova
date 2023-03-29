@@ -9,7 +9,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
 import lombok.Getter;
 import lombok.Setter;
-import project.HashPassword;
+import project.util.HashPassword;
 import project.model.User;
 
 public class ChangePasswordDialog extends ChangeDialog<User> {

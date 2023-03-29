@@ -1,10 +1,10 @@
 package project.server;
 
-import project.AnswerType;
+import project.net.AnswerType;
 import project.DAO.*;
-import project.ServerMessage;
-import project.StudentMessage;
-import project.StudentModelList;
+import project.net.ServerMessage;
+import project.net.StudentMessage;
+import project.net.StudentModelList;
 import project.model.BaseScholarship;
 import project.model.EducationForm;
 import project.model.Student;
@@ -147,7 +147,7 @@ public class ServerStudentOperations implements Runnable {
                 switch (message.getOperationType()) {
                     case changeInfo -> change(message, Student.class);
                     case changePassword -> change(message, User.class);
-                    case CalculateScholarship -> calculateScholarship(message);
+                    case calculateScholarship -> calculateScholarship(message);
                 }
                 showInfo();
             } catch (Exception e) {

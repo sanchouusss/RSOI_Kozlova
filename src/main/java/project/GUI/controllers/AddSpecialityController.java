@@ -39,12 +39,12 @@ public class AddSpecialityController extends AdminSubController {
             id = Integer.valueOf(idField.getText().strip());
 
             if (id < 0) {
-                alert.setHeaderText("ID должно быть положительным");
+                alert.setHeaderText("ID должен быть положительным");
                 alert.show();
                 return;
             }
         } catch (Exception e) {
-            alert.setHeaderText("ID должно быть числом");
+            alert.setHeaderText("ID должен быть числом");
             alert.show();
             return;
         }
@@ -59,12 +59,12 @@ public class AddSpecialityController extends AdminSubController {
             ratio9 = Float.parseFloat(ratio9Field.getText().strip());
 
             if (ratio5 < 0 || ratio6 < 0 || ratio7 < 0 || ratio8 < 0 || ratio9 < 0) {
-                alert.setHeaderText("Множители должны быть положительными");
+                alert.setHeaderText("Коэффициенты должны быть положительными");
                 alert.show();
                 return;
             }
         } catch (Exception e) {
-            alert.setHeaderText("Множитедт должны быть числами");
+            alert.setHeaderText("Коэффициенты должны быть числами");
             alert.show();
             return;
         }
