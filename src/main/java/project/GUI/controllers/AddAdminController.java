@@ -33,7 +33,7 @@ public class AddAdminController extends AdminSubController {
         var admin = User.builder()
                 .login(loginField.getText().strip())
                 .password(HashPassword.getHash(passwordField.getText()))
-                .role(UserRole.Admin)
+                .role(UserRole.Administrator)
                 .build();
         adminMenuController.addModel(admin);
     }

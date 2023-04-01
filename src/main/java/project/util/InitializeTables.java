@@ -101,7 +101,7 @@ public class InitializeTables {
                     }
                 };
 
-                if (s.getRole() == UserRole.Admin)
+                if (s.getRole() == UserRole.Administrator)
                     adminItems.add(row);
                 else
                     studentItems.add(row);

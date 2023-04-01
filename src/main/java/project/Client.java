@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import project.GUI.controllers.LoadingController;
+import project.util.FXMLHelpers;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -18,11 +19,11 @@ public class Client extends Application {
     public static Socket socket = null;
     public static ObjectOutputStream outputstream = null;
     public static ObjectInputStream inputstream = null;
-    public static Scene scene = null;
-    public static Stage stage = null;
+    @SuppressWarnings("all")public static Scene scene = null;
+    @SuppressWarnings("all")public static Stage stage = null;
 
     @Override
-
+    @SuppressWarnings("all")
     public void start(Stage stage) throws IOException, InterruptedException {
         Client.stage = stage;
 

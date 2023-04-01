@@ -60,7 +60,7 @@ public class LoginController {
 
 
                 Platform.runLater(() -> {
-                    var fxml = role == UserRole.Admin ? "adminmenu" : "studentmenu";
+                    var fxml = role == UserRole.Administrator ? "adminmenu" : "studentmenu";
 
                     try {
                         FXMLHelpers.setRoot(fxml);

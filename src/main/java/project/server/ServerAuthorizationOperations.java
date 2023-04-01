@@ -67,7 +67,7 @@ public class ServerAuthorizationOperations implements Runnable {
                     outputstream.writeObject(user.getRole());
                     outputstream.flush();
 
-                    if (user.getRole() == UserRole.Admin) {
+                    if (user.getRole() == UserRole.Administrator) {
                         return new ServerAdminOperations(socket, outputstream, inputstream);
                     } else {
                         return new ServerStudentOperations(socket, outputstream, inputstream, user.getId(), Integer.valueOf(user.getLogin()));
